@@ -1,0 +1,11 @@
+Otvaranje direktorija gdje se nalazi datoteka aplikacije u command promptu:
+Na računalu je potrebno imati instaliran Python3 i MySQL.
+Unos sljedećih komandi:
+
+py -3 -m venv venv
+venv\Scripts\activate
+pip install mysql-connector-python
+pip install flask-wtf
+set flask_debug = true
+set FLASK_APP=app.py
+flask run
