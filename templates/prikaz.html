@@ -1,0 +1,55 @@
+{% extends "layout.html"%}
+{% block content %}
+    <h1>Korona virus Hrvatska - podaci</h1>
+        </div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+          <ul class="navbar-nav">
+
+            <li class="nav-item">
+              <a class="nav-link" href="about">O projektu</a>
+            </li>
+
+              <li class="nav-item active">
+              <a class="nav-link" href="prikaz">Prikaz podataka</a>
+            </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" href="unos">Unos pacijenta</a>
+                </li>
+          </ul>
+        </nav>
+    <h2>Prikaz podataka</h2>
+    <p>Prikaz podataka o testiranima iz pogleda <a href="#" data-toggle="popover" title="MYSQL VIEW" data-content="SELECT test_id, ime, prezime, OIB, grad, datum_testiranja, zarazen &nbsp FROM osoba
+	NATURAL JOIN test">podaci</a> iz baze</p>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>OIB</th>
+            <th>Grad</th>
+            <th>Datum</th>
+            <th>Zarazen</th>
+            <tr>
+            <thead>
+        <tbody>
+    <!--Za svaki podatak iz baze podataka generiraj odgovarajući stupac u tablici-->
+    {% for podatak in podaci %}
+        <tr>
+            <td> {{podatak[0]}} </td>
+            <td> {{podatak[1]}} </td>
+            <td> {{podatak[2]}} </td>
+            <td> {{podatak[3]}} </td>
+            <td> {{podatak[4]}} </td>
+            <td> {{podatak[5]}} </td>
+            {% if podatak[6] %}
+                <td style="color: darkred;">DA</td>
+            {% else %}
+                <td style="color: darkgreen;">NE</td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock content%}

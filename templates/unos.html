@@ -1,0 +1,77 @@
+{% extends "layout.html"%}
+{% block content %}
+            <h1>Unos osoba u bazu podataka</h1>
+    </div>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="about">O projektu</a>
+                </li>
+
+                  <li class="nav-item">
+                  <a class="nav-link" href="prikaz">Prikaz podataka</a>
+                </li>
+
+                  <li class="nav-item active">
+                  <a class="nav-link" href="unos">Unos pacijenta</a>
+                </li>
+              </ul>
+    </nav>
+    <div class="row">
+        <div class="col-5">
+            <br>
+            <img style="width: 85%;" src="https://blog.timescale.com/content/images/size/w2000/2019/02/_IoT---Relational-Database.png">
+        </div>
+        <div class="col-7">
+            <h3>Unos testirane osobe</h3>
+            <p>Za dodavanje nove osobe u bazu podataka popunite formu ispod:</p>
+
+                <form method="POST" action="{{ url_for('unos') }}">
+                    <!--Mehanizam zastite CSRF - Cross site request forgery-->
+                    {{ form.csrf_token }}
+                    <!--Oblik ime_forme.ime_inputa(bootstrap klasa)-->
+                    <div class="form-group">
+                        {{ form.ime.label(class="form-control-label")}}<br>
+                        {{ form.ime(class="form-control")}}
+                        {% for error in form.ime.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.prezime.label(class="form-control-label")}}<br>
+                        {{ form.prezime(class="form-control")}}
+                        {% for error in form.prezime.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.oib.label(class="form-control-label")}}<br>
+                        {{ form.oib(class="form-control") }}
+                        {% for error in form.oib.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.grad.label(class="form-control-label")}}<br>
+                        {{ form.grad(class="form-control") }}
+                        {% for error in form.grad.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.datum_testiranja.label(class="form-control-label")}}<br>
+                        {{ form.datum_testiranja(class="form-control") }}
+                    </div>
+                    <div class="form-group">
+                    {% for subfield in form.pozitivan %}
+                        <tr>
+                            <td>{{ subfield}}</td>
+                            <td>{{ subfield.label}}</td>
+                        </tr>
+                    {% endfor %}
+                        </div>
+                    <p>{{ form.submit(class="btn btn-primary")}}</p>
+                </form>
+        </div>
+    </div>
+{% endblock content%}

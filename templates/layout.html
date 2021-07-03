@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+    <title>Projektni zadatak PIS - {{ title }}</title>
+    {% else %}
+    <title>Projektni zadatak PIS - Početna</title>
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="icon" href="https://cdn.pixabay.com/photo/2020/04/29/08/24/coronavirus-5107804_960_720.png" type="image/png" sizes="16x16"/>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center" style="margin-bottom:0; background-color:#eeebdd;">
+            <!--Flash message nakon uspješnog unosa testirane osobe u bazu-->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert alert-{{category}}">
+                        {{message}}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+    {% block content %}<!--Ovdje ide content iz ostalih HTML fileova-->{% endblock %}
+    </div>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+      $('[data-toggle="popover"]').popover();
+    });
+</script>
