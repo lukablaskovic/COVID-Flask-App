@@ -6,9 +6,6 @@ Web aplikacija za unos COVID-19 testiranih pacijenta u bazu podataka.
 
 -   Luka Blašković (lblaskovi@unipu.hr) - programiranje i dizajn aplikacije
 
-### Prototip aplikacije
-- Figma: https://bit.ly/30ITpU2
-
 ### Kratki opis funkcionalnosti
 Projekt je izrađen u 5. mjesecu 2021. godine na drugoj godini studija za potrebe kolegija Poslovni informacijski sustavi.
 Cilj je bio izraditi jednostavnu aplikaciju u Pythonu koristeći Flask framework. 
