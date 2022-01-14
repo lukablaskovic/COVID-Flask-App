@@ -16,5 +16,5 @@ Ova aplikacija služi za unos i pregled testiranih osoba u bazu podataka.
 
 [Sveučilište Jurja Dobrile u Puli](http://www.unipu.hr/)  
 [Fakultet informatike u Puli](https://fipu.unipu.hr/)  
-Programsko inženjerstvo, ak.god. 2021./2022.  
+Poslovni informacijski sustavi, ak.god. 2020./2021.  
 Mentor: **Dario Kukuljan** (https://fet.unipu.hr/fet/dario.kukuljan, dario.kukuljan@unipu.hr)
